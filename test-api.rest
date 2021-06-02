@@ -1,0 +1,1 @@
+https://app-azure-api-sample.azurewebsites.net/WeatherForecast
