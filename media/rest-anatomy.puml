@@ -1,0 +1,69 @@
+@startuml rest-anatomy
+!theme cerulean
+participant client
+participant request
+participant response
+participant "REST API\nendpoint" as api
+
+==Build Request==
+
+client -> request: Create request
+note left:- Metnod\n- EndpointURL\n- Path to resource\n- HTTP Version [optional]\n- Headers
+
+note across: Certain verbs require additonal informaiton on request
+
+alt GET
+client -> request: without parameters
+note right: by default GET will \nretrieve all resources
+client -> request: add query parameters, this is like filtering
+note right: if endpoint supports\n query parameters, **?q=**
+client -> request: add /{ID} to retrieve specific resource
+end
+
+alt POST, PUT, PATCH
+client -> request: add payload
+note right: payload can be JSON \nor XML or other content type
+end
+
+alt DELETE
+client -> request: must add /{ID} to delete specific resource
+end
+
+==Send Request==
+
+client -> api:issue request by calling API endpoint
+
+api ->]: <<backend service>>
+
+
+==Receive Response==
+
+note across: Certain verbs require additonal informaiton on response
+
+api -> response : Create response
+
+alt GET
+api -> response: Status code **200** (OK) with payload
+note right: Payload type depends on the \n**content-type** header value
+end
+
+alt POST, PUT
+api -> response: Status code **201** (Created) with id of \n changed/created resource
+note right: No payload
+end
+
+alt DELETE
+api -> response: Status code **204** (No Content)
+note right: No payload
+end
+
+alt ERROR
+api -> response: Status codes starting with **4** or **5**
+note right: Those status codes indicate errror, some of them can have payloads
+end
+
+==Send Response==
+
+api -> client: Send response to the client
+
+@enduml

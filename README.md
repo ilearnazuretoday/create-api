@@ -9,6 +9,10 @@
 - [Nouns vs Verbs](https://cloud.google.com/blog/products/api-management/restful-api-design-nouns-are-good-verbs-are-bad)
 - [Curated list of Public APIs to play with](https://github.com/public-apis/public-apis)
 
+### REST Anatomy
+
+![REST Anatomy](media/rest-anatomy.png)
+
 ### Check out request based on DogFacts
 
 Use Postman to navigate to:
