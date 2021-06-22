@@ -9,12 +9,6 @@
 - [Nouns vs Verbs](https://cloud.google.com/blog/products/api-management/restful-api-design-nouns-are-good-verbs-are-bad)
 - [Curated list of Public APIs to play with](https://github.com/public-apis/public-apis)
 
-### Check out request based on DogFacts
-
-Use Postman to navigate to:
-
-https://dog-facts-api.herokuapp.com/api/v1/resources/dogs?number=1
-
 ## Example
 
 A good example of a well designed [REST API is GitHub](https://docs.github.com/en/rest)
